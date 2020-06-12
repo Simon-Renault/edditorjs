@@ -14,7 +14,7 @@ module.exports =  (req, res) => {
         code : req.query.code 
     }
 
-    res.json(data)
+   
 
     try{
         const response = await Axios.post('https://github.com/login/oauth/access_token',data,{
