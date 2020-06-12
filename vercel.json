@@ -1,22 +1,17 @@
-<<<<<<< HEAD
 {
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-        "Access-Control-Allow-Credentials": "true"
-      },
-      "continue": true
-    },
-    {
-      "src": "/api/(.*)",
-      "methods": ["OPTIONS"],
-      "dest": "/api/cors"
-    }
-  ]
-}
-=======
-
->>>>>>> ce59201aec255ac0c6b37466dcef0ab55b8dceb6
+    "headers": [
+      {
+        "source": "/api/(.*)",
+        "headers" : [
+          {
+            "key" : "Access-Control-Allow-Origin",
+            "value" : "*"
+          },
+          {
+            "key" : "Access-Control-Allow-Methods",
+            "value" : "*"
+          }
+        ]
+      }
+    ]
+  } 
