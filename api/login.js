@@ -1,6 +1,6 @@
 const Axios = require("axios")
 
-module.exports =  (req, res) => {
+module.exports =  async (req, res) => {
 
     if(!req.query.code){
         res.status(500).json({
