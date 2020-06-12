@@ -17,7 +17,7 @@ export default {
       let code =  this.$route.query.code
       if(!code) return
       console.log(code)
-      const token = await Axios.get('https://editorjs.vercel.app/api/login?code=' + code)
+      const token = await Axios.get('https://editorjs.simon-renault.vercel.app/api/login?code=' + code)
       this.token = token.data
       console.log(token)
 
