@@ -9,23 +9,23 @@ module.exports =  (req, res) => {
     }
 
     const data = {
-        client_id : process.env,
-        client_secret : process.env,
+        client_id : process.env.client_id,
+        client_secret : process.env.client_secret,
         code : req.query.code 
     }
 
     res.json(data)
 
-    // try{
-    //     const response = await Axios.post('https://github.com/login/oauth/access_token',data,{
-    //         headers: {  'Accept': 'application/json'  }
-    //     })
+    try{
+        const response = await Axios.post('https://github.com/login/oauth/access_token',data,{
+            headers: {  'Accept': 'application/json'  }
+        })
     
-    //     if(response.data.error) res.json({error:response.data.error_description})
-    //     res.json(response.data.access_token)
-    // }catch(e){
-    //     res.json(e)
-    // }
+        if(response.data.error) res.json({error:response.data.error_description})
+        res.json(response.data.access_token)
+    }catch(e){
+        res.json(e)
+    }
 }
 
 
