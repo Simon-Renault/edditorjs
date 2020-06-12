@@ -1,7 +1,23 @@
 const Axios = require("axios")
 
+const allowCors = fn => async (req, res) => {
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    // another option
+    // res.setHeader('Access-Control-Allow-Origin', req.header.origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS')
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    )
+    if (req.method === 'OPTIONS') {
+      res.status(200).end()
+      return
+    }
+    return await fn(req, res)
+}
 
-module.exports = (req, res) => {
+const handler = (req, res) => {
 
     if(!req.query.code){
         res.status(500).json({
@@ -28,6 +44,10 @@ module.exports = (req, res) => {
     //     res.json(e)
     // }
 }
+
+
+module.exports = allowCors(handler)
+
 
 
 
