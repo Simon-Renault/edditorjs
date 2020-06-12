@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@now/node": "^1.7.0",
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "github-api": "^3.3.0",
     "register-service-worker": "^1.7.1",

@@ -16,10 +16,8 @@ export default {
     this.$nextTick( async () => {
       let code =  this.$route.query.code
       if(!code) return
-       
-      const token = await Axios.post('http://localhost:8080/token',{
-        code: this.code
-      })
+      console.log(code)
+      const token = await Axios.get('https://editorjs.simon-renault.vercel.app/api/login?code=' + code)
       this.token = token.data
       console.log(token)
 
