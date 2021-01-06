@@ -9,7 +9,7 @@
   "dependencies": {
     "@now/node": "^1.7.0",
     "@octokit/rest": "^18.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "github": "^14.0.0",
     "github-api": "^3.3.0",
